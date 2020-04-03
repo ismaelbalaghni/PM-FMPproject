@@ -8,4 +8,4 @@ Si jamais c'est disponible, un flux Twitter avec leurs derniers tweets sera disp
 Enfin, une série de photos sera disponible en bas de page pour chaque président.
 
 # Screenshots
-![Capture du 3 avril 2020](https://drive.google.com/file/d/17S21FkqvCjU4g56V7A4Mi_XDv_qA9EH6/view?usp=sharing "Capture du 3 avril 2020")
+![Capture du 3 avril 2020](https://ibb.co/4NxB1Q0 "Capture du 3 avril 2020")
