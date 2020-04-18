@@ -8,4 +8,4 @@ Si jamais c'est disponible, un flux Twitter avec leurs derniers tweets sera disp
 Enfin, une série de photos sera disponible en bas de page pour chaque président.
 
 # Screenshots
-![Capture du 3 avril 2020](assets/Screenshot_20200403-120333_MyProgrammationMobileProject (1).jpg)
+![Capture du 3 avril 2020](assets/TestListScreen.jpg)
