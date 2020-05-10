@@ -20,4 +20,4 @@ Cette application affichera toutes les entreprises côtées en bourse et qui son
 
 # Screenshots
 ![Capture du 3 avril 2020](assets/TestListScreen.jpg)
-[Capture du 10 mai 2020](assets/StockCompaniesList.png)
+![Capture du 10 mai 2020](assets/StockCompaniesList.png)
