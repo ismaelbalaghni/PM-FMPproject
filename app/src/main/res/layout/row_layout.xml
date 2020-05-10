@@ -10,33 +10,33 @@
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="6dip"
-        android:contentDescription="TODO"
+        android:layout_marginEnd="6dip"
+        android:contentDescription="@string/todo"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/president_description"
+        android:id="@+id/indexTickerPrice"
         android:layout_width="fill_parent"
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/icon"
         android:ellipsize="marquee"
-        android:text="Description"
+        android:text="@string/description"
         android:textSize="12sp"
         android:singleLine="true" />
 
     <TextView
-        android:id="@+id/president_name"
+        android:id="@+id/indexName"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/president_description"
-        android:layout_alignParentRight="true"
+        android:layout_above="@id/indexTickerPrice"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/icon"
+        android:layout_toEndOf="@id/icon"
         android:gravity="center_vertical"
-        android:text="Example application"
+        android:text="@string/example_application"
         android:textSize="16sp" />
 
 </RelativeLayout>

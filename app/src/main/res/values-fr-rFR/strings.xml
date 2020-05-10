@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Projet de Programmation mobile</string>
+    <string name="description">Description</string>
+    <string name="menu_refresh">Actualiser</string>
+    <string name="todo">AFAIRE</string>
+    <string name="example_application">Exemple d\'application</string>
+</resources>
