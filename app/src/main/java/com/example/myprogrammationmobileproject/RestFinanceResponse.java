@@ -1,15 +1,16 @@
 package com.example.myprogrammationmobileproject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RestFinanceResponse {
-    private ArrayList<StockCompany> symbolsList;
+    private List<StockCompany> symbolsList;
 
-    public ArrayList<StockCompany> getSymbolsList() {
+    public List<StockCompany> getSymbolsList() {
         return symbolsList;
     }
 
-    public void setSymbolsList(ArrayList<StockCompany> symbolsList) {
+    public void setSymbolsList(List<StockCompany> symbolsList) {
         this.symbolsList = symbolsList;
     }
 }
