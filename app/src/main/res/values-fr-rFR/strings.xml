@@ -5,4 +5,5 @@
     <string name="menu_refresh">Actualiser</string>
     <string name="todo">AFAIRE</string>
     <string name="example_application">Exemple d\'application</string>
+    <string name="action_settings">Réglages</string>
 </resources>

@@ -7,6 +7,7 @@ import android.widget.Toast;
 import android.widget.ViewAnimator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,11 +34,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ArrayList<String> input = new ArrayList<>();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        List<String> input = new ArrayList<>();
         makeAPIcall();
     }
 
-    private void createList(ArrayList<StockCompany> input) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.refresh_button) {
+            makeAPIcall();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void createList(List<StockCompany> input) {
         recyclerView = findViewById(R.id.indexes);
         recyclerView.setHasFixedSize(true);
         // use a linear layout manager
@@ -66,8 +92,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RestFinanceResponse> call, Response<RestFinanceResponse> response) {
 
                 if(response.isSuccessful() && response.body() != null){
-                    ArrayList<StockCompany> stockCompanies = response.body().getSymbolsList();
+                    List<StockCompany> fullStockCompanies = response.body().getSymbolsList();
                     Toast.makeText(getApplicationContext(), "Données récupérées.", Toast.LENGTH_SHORT).show();
+                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/500);
                     createList(stockCompanies);
                 } else {
                     showError();

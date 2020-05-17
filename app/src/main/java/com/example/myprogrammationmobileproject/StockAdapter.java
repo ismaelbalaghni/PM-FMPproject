@@ -13,9 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> {
-    private ArrayList<StockCompany> stockCompanies;
+    private List<StockCompany> stockCompanies;
     private Context context;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -46,7 +47,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public StockAdapter(Context context, ArrayList<StockCompany> stockCompanies) {
+    public StockAdapter(Context context, List<StockCompany> stockCompanies) {
         this.stockCompanies = stockCompanies;
         this.context = context;
     }
