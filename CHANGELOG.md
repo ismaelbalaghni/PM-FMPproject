@@ -34,3 +34,20 @@ Fichier qui tracera ce qui a été ajouté dans les différentes versions.
 ### Supprimé
 
 - Rien.
+
+## 17/05/2020 - [0.0.4](https://github.com/ismaelbalaghni/MyProgrammationMobileProject/commit/cbecc6bec9fc677fcdc011ded0618efb9d8528da)
+
+### Ajouté
+
+- Bouton de recherche
+- Fonctionnalité de recherche des éléments
+- Restriction du nombre d'affichages d'éléments dans la liste.
+
+### Supprimé
+
+- Rien.
+
+### À corriger
+
+- Erreurs dans le Logcat liées à Zygote (n'affecte pas le fonctionnement du programme).
+- Erreurs dans le Logcat liées à la RecyclerView (n'affecte pas le fonctionnement du programme).
