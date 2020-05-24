@@ -1,20 +1,14 @@
 package com.example.myprogrammationmobileproject.presentation.controller;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import androidx.appcompat.widget.SearchView;
 
 import com.example.myprogrammationmobileproject.Constantes;
+import com.example.myprogrammationmobileproject.Injection;
 import com.example.myprogrammationmobileproject.R;
-import com.example.myprogrammationmobileproject.data.FinancialModelingPrepAPI;
 import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
 import com.example.myprogrammationmobileproject.presentation.view.MainActivity;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -23,16 +17,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainController {
     private SharedPreferences sharedPreferences;
     private Gson gson;
     private MainActivity view;
-
-    public MainController() {
-    }
 
     public MainController(MainActivity view, Gson gson, SharedPreferences sharedPreferences) {
         this.view = view;
@@ -85,14 +74,7 @@ public class MainController {
     }
 
     private void makeAPIcall(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constantes.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        FinancialModelingPrepAPI financialAPI = retrofit.create(FinancialModelingPrepAPI.class);
-
-        Call<List<StockCompany>> call = financialAPI.getFMPResponse(Constantes.API_KEY);
+        Call<List<StockCompany>> call = Injection.getFinancialModelingPrepAPI().getFMPResponse(Constantes.API_KEY);
         call.enqueue(new Callback<List<StockCompany>>() {
 
             @Override

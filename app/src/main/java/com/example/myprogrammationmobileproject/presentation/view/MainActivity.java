@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myprogrammationmobileproject.Constantes;
+import com.example.myprogrammationmobileproject.Injection;
 import com.example.myprogrammationmobileproject.R;
 import com.example.myprogrammationmobileproject.presentation.controller.MainController;
 import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
@@ -40,10 +41,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         controller = new MainController(this,
-                new GsonBuilder()
-                .setLenient()
-                .create(),
-                getSharedPreferences(Constantes.SHARED_PREFS_NAME, Context.MODE_PRIVATE));
+                Injection.getGson(),
+                Injection.getSharedPreferences(getApplicationContext()));
         controller.onStart();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
