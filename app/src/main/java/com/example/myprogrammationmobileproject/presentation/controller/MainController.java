@@ -3,6 +3,8 @@ package com.example.myprogrammationmobileproject.presentation.controller;
 import android.content.SharedPreferences;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.example.myprogrammationmobileproject.Constantes;
 import com.example.myprogrammationmobileproject.Injection;
 import com.example.myprogrammationmobileproject.R;
@@ -53,8 +55,14 @@ public class MainController {
             return true;
         } else if(id==R.id.app_bar_search){
             return true;
+        } else if(id==R.id.dark_mode_toggle){
+            toggleDarkMode();
         }
         return view.getParent().onContextItemSelected(item);
+    }
+
+    private void toggleDarkMode() {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
     }
 
     public void handleBack(){
