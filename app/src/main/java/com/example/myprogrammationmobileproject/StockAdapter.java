@@ -1,6 +1,7 @@
 package com.example.myprogrammationmobileproject;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,6 +116,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
                     for(StockCompany company : stockCompanies){
                         if(company.getName().toLowerCase().contains(filter.toLowerCase()) || company.getSymbol().toLowerCase().contains(filter.toLowerCase())){
                             filteredStockCompanies.add(company);
+                            Log.d("Search", String.valueOf(filteredStockCompanies.size()) + " " + stockCompanies.size() + " " + company);
                         }
                     }
                 }
