@@ -40,7 +40,7 @@ public class MainController {
     }
 
     public void onItemClick(StockCompany stockCompany){
-        view.showDetails();
+        view.showDetails(stockCompany);
     }
 
     public boolean onButtonClick(MenuItem item){

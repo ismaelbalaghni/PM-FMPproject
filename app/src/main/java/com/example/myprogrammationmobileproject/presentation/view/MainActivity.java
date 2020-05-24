@@ -109,9 +109,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.toast_error, Toast.LENGTH_SHORT).show();
     }
 
-    public void showDetails() {
+    public void showDetails(StockCompany stockCompany) {
         Intent intent = new Intent(this, DetailActivity.class);
-        // intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(Constantes.INTENT_COMPANY_KEY, Injection.getGson().toJson(stockCompany));
         startActivity(intent);
 
     }

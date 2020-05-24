@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myprogrammationmobileproject.Constantes;
 import com.example.myprogrammationmobileproject.R;
 import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
 import com.squareup.picasso.Picasso;
@@ -84,8 +85,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         // - replace the contents of the view with that element
         final StockCompany currentCompany = filteredCompanies.get(position);
         holder.txtHeader.setText(currentCompany.getName());
-        String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
-        Picasso.with(this.context).load(imageUri).resize(200, 200).into(holder.imageIcon);
+        Picasso.with(this.context).load(Constantes.PLACEHOLDER_IMAGE).resize(200, 200).into(holder.imageIcon);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
