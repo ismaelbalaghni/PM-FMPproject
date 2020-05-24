@@ -116,7 +116,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
                     for(StockCompany company : stockCompanies){
                         if(company.getName().toLowerCase().contains(filter.toLowerCase()) || company.getSymbol().toLowerCase().contains(filter.toLowerCase())){
                             filteredStockCompanies.add(company);
-                            Log.d("Search", String.valueOf(filteredStockCompanies.size()) + " " + stockCompanies.size() + " " + company);
                         }
                     }
                 }

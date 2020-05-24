@@ -2,6 +2,7 @@ package com.example.myprogrammationmobileproject;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,14 +36,36 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
     private static final String BASE_URL = "https://financialmodelingprep.com/";
     private static final String API_KEY = "7669410b5f52921d05e8216ea58e1afa";
     private SearchView searchView;
+    private SharedPreferences sharedPreferences;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPreferences = getSharedPreferences(Constantes.SHARED_PREFS_NAME, Context.MODE_PRIVATE);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
         setSupportActionBar(toolbar);
-        makeAPIcall();
+        List<StockCompany> stockCompanyList = getDataFromCache();
+        if(stockCompanyList != null){
+            createList(stockCompanyList);
+        } else {
+            makeAPIcall();
+        }
+
+    }
+
+    private List<StockCompany> getDataFromCache() {
+        String companiesAsJSON = sharedPreferences.getString(Constantes.FMP_COMPANIES_KEY, null);
+        Type listType = new TypeToken<List<StockCompany>>(){}.getType();
+        if(companiesAsJSON == null){
+            return null;
+        } else {
+            return gson.fromJson(companiesAsJSON, listType);
+        }
     }
 
     @Override
@@ -108,10 +134,6 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
     }
 
     private void makeAPIcall(){
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -127,8 +149,9 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
 
                 if(response.isSuccessful() && response.body() != null){
                     List<StockCompany> fullStockCompanies = response.body();
-                    Toast.makeText(getApplicationContext(), "Données récupérées.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.toast_success, Toast.LENGTH_SHORT).show();
                     List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/20);
+                    saveList(stockCompanies);
                     createList(stockCompanies);
                 } else {
                     showError();
@@ -142,8 +165,14 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
         });
     }
 
+    private void saveList(List<StockCompany> stockCompanies) {
+        String stockCompaniesAsJson = gson.toJson(stockCompanies);
+        sharedPreferences.edit().putString(Constantes.FMP_COMPANIES_KEY,stockCompaniesAsJson).apply();
+        Toast.makeText(this, R.string.shared_pref_saved_ok, Toast.LENGTH_SHORT).show();
+    }
+
     private void showError() {
-        Toast.makeText(getApplicationContext(), "Erreur API.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.toast_error, Toast.LENGTH_SHORT).show();
     }
 
     @Override
