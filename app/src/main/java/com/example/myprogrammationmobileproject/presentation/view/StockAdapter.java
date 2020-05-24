@@ -22,7 +22,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     private List<StockCompany> stockCompanies;
     private List<StockCompany> filteredCompanies;
     private Context context;
-    private StockAdapterListener listener;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -43,7 +42,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onSelected(filteredCompanies.get(getAdapterPosition()));
                 }
             });
         }
@@ -60,11 +58,10 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public StockAdapter(Context context, List<StockCompany> stockCompanies, StockAdapterListener listener) {
+    public StockAdapter(Context context, List<StockCompany> stockCompanies) {
         this.stockCompanies = stockCompanies;
         this.context = context;
         this.filteredCompanies = stockCompanies;
-        this.listener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -134,7 +131,4 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         };
     }
 
-    public interface StockAdapterListener{
-        void onSelected(StockCompany selectedCompany);
-    }
 }
