@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
     private RecyclerView recyclerView;
     private StockAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private static final String BASE_URL = "https://financialmodelingprep.com/";
-    private static final String API_KEY = "7669410b5f52921d05e8216ea58e1afa";
     private SearchView searchView;
     private SharedPreferences sharedPreferences;
     private Gson gson;
@@ -135,13 +133,13 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
 
     private void makeAPIcall(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constantes.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         FinancialModelingPrepAPI financialAPI = retrofit.create(FinancialModelingPrepAPI.class);
 
-        Call<List<StockCompany>> call = financialAPI.getFMPResponse(API_KEY);
+        Call<List<StockCompany>> call = financialAPI.getFMPResponse(Constantes.API_KEY);
         call.enqueue(new Callback<List<StockCompany>>() {
 
             @Override
