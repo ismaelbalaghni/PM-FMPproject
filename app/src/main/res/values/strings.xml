@@ -12,4 +12,5 @@
     <string name="toast_error">API Error</string>
     <string name="toast_selected">Selected:</string>
     <string name="toast_todo" translatable="false">TODO</string>
+    <string name="detail_placeholder_text">Company detail screen</string>
 </resources>
