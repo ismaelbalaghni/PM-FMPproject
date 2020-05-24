@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
     private StockAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private static final String BASE_URL = "https://financialmodelingprep.com/";
+    private static final String API_KEY = "7669410b5f52921d05e8216ea58e1afa";
     private SearchView searchView;
 
     @Override
@@ -118,16 +119,16 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
 
         FinancialModelingPrepAPI financialAPI = retrofit.create(FinancialModelingPrepAPI.class);
 
-        Call<RestFinanceResponse> call = financialAPI.getFMPResponse();
-        call.enqueue(new Callback<RestFinanceResponse>() {
+        Call<List<StockCompany>> call = financialAPI.getFMPResponse(API_KEY);
+        call.enqueue(new Callback<List<StockCompany>>() {
 
             @Override
-            public void onResponse(Call<RestFinanceResponse> call, Response<RestFinanceResponse> response) {
+            public void onResponse(Call<List<StockCompany>> call, Response<List<StockCompany>> response) {
 
                 if(response.isSuccessful() && response.body() != null){
-                    List<StockCompany> fullStockCompanies = response.body().getSymbolsList();
+                    List<StockCompany> fullStockCompanies = response.body();
                     Toast.makeText(getApplicationContext(), "Données récupérées.", Toast.LENGTH_SHORT).show();
-                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/500);
+                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/20);
                     createList(stockCompanies);
                 } else {
                     showError();
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements StockAdapter.Stoc
             }
 
             @Override
-            public void onFailure(Call<RestFinanceResponse> call, Throwable t) {
+            public void onFailure(Call<List<StockCompany>> call, Throwable t) {
                 showError();
             }
         });
