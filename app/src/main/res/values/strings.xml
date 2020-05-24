@@ -7,4 +7,9 @@
     <string name="refresh_action">Refresh</string>
     <string name="search_action">Search</string>
     <string name="search_hint">Search a company</string>
+    <string name="toast_success">Data retrieved successfully</string>
+    <string name="shared_pref_saved_ok">List saved</string>
+    <string name="toast_error">API Error</string>
+    <string name="toast_selected">Selected:</string>
+    <string name="toast_todo" translatable="false">TODO</string>
 </resources>

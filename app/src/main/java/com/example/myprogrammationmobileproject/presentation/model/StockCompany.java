@@ -1,4 +1,4 @@
-package com.example.myprogrammationmobileproject;
+package com.example.myprogrammationmobileproject.presentation.model;
 
 public class StockCompany {
     private String symbol;
