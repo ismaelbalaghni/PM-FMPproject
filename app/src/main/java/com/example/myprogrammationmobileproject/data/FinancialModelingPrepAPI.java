@@ -1,4 +1,6 @@
-package com.example.myprogrammationmobileproject;
+package com.example.myprogrammationmobileproject.data;
+
+import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
 
 import java.util.List;
 
