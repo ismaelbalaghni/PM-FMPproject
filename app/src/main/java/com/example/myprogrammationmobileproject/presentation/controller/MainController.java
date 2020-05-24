@@ -40,6 +40,7 @@ public class MainController {
     }
 
     public void onItemClick(StockCompany stockCompany){
+        view.showDetails();
     }
 
     public boolean onButtonClick(MenuItem item){
@@ -82,7 +83,7 @@ public class MainController {
 
                 if(response.isSuccessful() && response.body() != null){
                     List<StockCompany> fullStockCompanies = response.body();
-                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/20);
+                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/500);
                     saveList(stockCompanies);
                     view.showList(stockCompanies);
                 } else {

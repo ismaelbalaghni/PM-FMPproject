@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -94,7 +95,12 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         // define an adapter
-        mAdapter = new StockAdapter(this, input);
+        mAdapter = new StockAdapter(this, input, new StockAdapter.StockAdapterListener() {
+            @Override
+            public void onItemClick(StockCompany company) {
+                controller.onItemClick(company);
+            }
+        });
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -102,4 +108,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.toast_error, Toast.LENGTH_SHORT).show();
     }
 
+    public void showDetails() {
+        Toast.makeText(getApplicationContext(), R.string.toast_todo, Toast.LENGTH_SHORT).show();
+    }
 }

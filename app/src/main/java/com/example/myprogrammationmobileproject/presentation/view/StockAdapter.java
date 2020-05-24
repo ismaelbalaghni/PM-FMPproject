@@ -19,9 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> implements Filterable {
-    private List<StockCompany> stockCompanies;
+    private final List<StockCompany> stockCompanies;
     private List<StockCompany> filteredCompanies;
     private Context context;
+    private final StockAdapterListener stockAdapterListener;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,10 +59,11 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public StockAdapter(Context context, List<StockCompany> stockCompanies) {
+    public StockAdapter(Context context, List<StockCompany> stockCompanies, StockAdapterListener listener) {
         this.stockCompanies = stockCompanies;
         this.context = context;
         this.filteredCompanies = stockCompanies;
+        this.stockAdapterListener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -80,15 +82,14 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-
-        final String name = filteredCompanies.get(position).getName();
-        holder.txtHeader.setText(name);
+        final StockCompany currentCompany = filteredCompanies.get(position);
+        holder.txtHeader.setText(currentCompany.getName());
         String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
         Picasso.with(this.context).load(imageUri).resize(200, 200).into(holder.imageIcon);
-        holder.txtHeader.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                stockAdapterListener.onItemClick(currentCompany);
             }
         });
 
@@ -131,4 +132,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         };
     }
 
+    public interface StockAdapterListener{
+        void onItemClick(StockCompany company);
+    }
 }
