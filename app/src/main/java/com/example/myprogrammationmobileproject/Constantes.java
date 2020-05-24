@@ -2,6 +2,7 @@ package com.example.myprogrammationmobileproject;
 
 public class Constantes {
     public static final String BASE_URL = "https://financialmodelingprep.com/";
+    public static final String IMAGE_URL = "https://financialmodelingprep.com/image-stock/";
     public static final String API_KEY = "7669410b5f52921d05e8216ea58e1afa";
     public static final String INTENT_COMPANY_KEY = "stock_company";
     public static final String PLACEHOLDER_IMAGE = "https://i.imgur.com/tGbaZCY.jpg";

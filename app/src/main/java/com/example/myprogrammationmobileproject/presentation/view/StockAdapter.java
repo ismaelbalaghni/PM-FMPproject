@@ -85,7 +85,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         // - replace the contents of the view with that element
         final StockCompany currentCompany = filteredCompanies.get(position);
         holder.txtHeader.setText(currentCompany.getName());
-        Picasso.with(this.context).load(Constantes.PLACEHOLDER_IMAGE).resize(200, 200).into(holder.imageIcon);
+        Picasso.with(this.context).load(Constantes.IMAGE_URL+currentCompany.getSymbol()+".jpg").resize(200, 200).into(holder.imageIcon);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
