@@ -16,8 +16,11 @@ Cette application affichera toutes les entreprises côtées en bourse et qui son
 - Swipe to Refresh pour actualiser les données
 - Recherche de compagnies (fonctionnalité banale mais sur une liste de 14000 compagnies...)
 - API [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) pour récupérer les données depuis FMP.
+- API [Retrofit](https://square.github.io/retrofit/) qui va exploiter l'API REST pour récupérer les données.
+- API [Gson](https://github.com/google/gson) qui s'occupe de formater les données dans un format exploitable.
 - API [Picasso](https://square.github.io/picasso/) qui récupère les images, les redimensionne et les affiche.
 - Cache pour accélérer le lancement de l'application.
+- Mode sombre oooo
 
 # Screenshots
 | ![Capture du 3 avril 2020](assets/TestListScreen.jpg)  | ![Capture du 10 mai 2020](assets/StockCompaniesList.png)  |  ![Capture du 17 mai 2020](assets/device-2020-05-17-210153.png) |
