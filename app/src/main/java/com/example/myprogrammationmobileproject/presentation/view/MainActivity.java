@@ -2,6 +2,7 @@ package com.example.myprogrammationmobileproject.presentation.view;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
@@ -108,7 +109,10 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), R.string.toast_error, Toast.LENGTH_SHORT).show();
     }
 
-    public void showDetails() {
-        Toast.makeText(getApplicationContext(), R.string.toast_todo, Toast.LENGTH_SHORT).show();
+    public void showDetails(StockCompany stockCompany) {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(Constantes.INTENT_COMPANY_KEY, Injection.getGson().toJson(stockCompany));
+        startActivity(intent);
+
     }
 }

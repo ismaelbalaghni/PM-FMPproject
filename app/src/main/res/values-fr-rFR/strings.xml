@@ -12,4 +12,10 @@
     <string name="shared_pref_saved_ok">Liste enregistrée</string>
     <string name="toast_error">Erreur API</string>
     <string name="toast_selected">"Sélectionné : "</string>
+    <string name="detail_placeholder_text">Détail de la compagnie</string>
+    <string name="symbol">Symbole</string>
+    <string name="website">Site Internet</string>
+    <string name="price">Côte</string>
+    <string name="exchange">Bourse</string>
+    <string name="toggle_dark_mode">Activer le mode sombre</string>
 </resources>

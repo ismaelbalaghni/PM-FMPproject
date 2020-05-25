@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.DetailActivity">
+
+    <ImageView
+        android:id="@+id/companyLogoDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="Company logo"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/companyNameDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/companyNameDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="512dp"
+        android:text="@string/detail_placeholder_text"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyLogoDetail" />
+
+    <TextView
+        android:id="@+id/companySymbolLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/symbol"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/companyExchangeLabel"
+        app:layout_constraintEnd_toStartOf="@+id/companySymbolDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyNameDetail" />
+
+    <TextView
+        android:id="@+id/companySymbolDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/companyExchangeDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/companySymbolLabel"
+        app:layout_constraintTop_toBottomOf="@+id/companyNameDetail" />
+
+    <TextView
+        android:id="@+id/companyExchangeLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/exchange"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/companyPriceLabel"
+        app:layout_constraintEnd_toStartOf="@+id/companyExchangeDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companySymbolLabel" />
+
+    <TextView
+        android:id="@+id/companyExchangeDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/companyPriceDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/companyExchangeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/companySymbolDetail" />
+
+    <TextView
+        android:id="@+id/companyPriceLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/companyWebsiteLabel"
+        app:layout_constraintEnd_toStartOf="@+id/companyPriceDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyExchangeLabel" />
+
+    <TextView
+        android:id="@+id/companyPriceDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/companyWebsiteDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/companyPriceLabel"
+        app:layout_constraintTop_toBottomOf="@+id/companyExchangeDetail" />
+
+    <TextView
+        android:id="@+id/companyWebsiteLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/website"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/companyDescriptionLabel"
+        app:layout_constraintEnd_toStartOf="@+id/companyWebsiteDetail"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyPriceLabel" />
+
+    <TextView
+        android:id="@+id/companyWebsiteDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/companyDescriptionDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/companyWebsiteLabel"
+        app:layout_constraintTop_toBottomOf="@+id/companyPriceDetail" />
+
+    <TextView
+        android:id="@+id/companyDescriptionLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/description"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/companyDescriptionDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyWebsiteLabel" />
+
+    <TextView
+        android:id="@+id/companyDescriptionDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/companyDescriptionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/companyWebsiteDetail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
