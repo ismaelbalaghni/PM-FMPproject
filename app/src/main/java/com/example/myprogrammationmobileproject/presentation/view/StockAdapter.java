@@ -1,7 +1,6 @@
-package com.example.myprogrammationmobileproject;
+package com.example.myprogrammationmobileproject.presentation.view;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +11,19 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myprogrammationmobileproject.Constantes;
+import com.example.myprogrammationmobileproject.R;
+import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> implements Filterable {
-    private List<StockCompany> stockCompanies;
+    private final List<StockCompany> stockCompanies;
     private List<StockCompany> filteredCompanies;
     private Context context;
-    private StockAdapterListener listener;
+    private final StockAdapterListener stockAdapterListener;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -42,7 +44,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onSelected(filteredCompanies.get(getAdapterPosition()));
                 }
             });
         }
@@ -63,7 +64,7 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
         this.stockCompanies = stockCompanies;
         this.context = context;
         this.filteredCompanies = stockCompanies;
-        this.listener = listener;
+        this.stockAdapterListener = listener;
     }
 
     // Create new views (invoked by the layout manager)
@@ -82,15 +83,13 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-
-        final String name = filteredCompanies.get(position).getName();
-        holder.txtHeader.setText(name);
-        String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
-        Picasso.with(this.context).load(imageUri).resize(200, 200).into(holder.imageIcon);
-        holder.txtHeader.setOnClickListener(new View.OnClickListener() {
+        final StockCompany currentCompany = filteredCompanies.get(position);
+        holder.txtHeader.setText(currentCompany.getName());
+        Picasso.with(this.context).load(Constantes.IMAGE_URL+currentCompany.getSymbol()+".jpg").resize(200, 200).into(holder.imageIcon);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                stockAdapterListener.onItemClick(currentCompany);
             }
         });
 
@@ -134,6 +133,6 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.ViewHolder> 
     }
 
     public interface StockAdapterListener{
-        void onSelected(StockCompany selectedCompany);
+        void onItemClick(StockCompany company);
     }
 }

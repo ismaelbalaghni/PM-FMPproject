@@ -1,6 +1,5 @@
-package com.example.myprogrammationmobileproject;
+package com.example.myprogrammationmobileproject.presentation.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RestFinanceResponse {

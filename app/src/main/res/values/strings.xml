@@ -11,4 +11,11 @@
     <string name="shared_pref_saved_ok">List saved</string>
     <string name="toast_error">API Error</string>
     <string name="toast_selected">Selected:</string>
+    <string name="toast_todo" translatable="false">TODO</string>
+    <string name="detail_placeholder_text">Company detail screen</string>
+    <string name="symbol">Symbol</string>
+    <string name="website">Website</string>
+    <string name="price">Price</string>
+    <string name="exchange">Exchange</string>
+    <string name="toggle_dark_mode">Toggle Dark Mode</string>
 </resources>
