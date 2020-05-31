@@ -32,7 +32,6 @@ public class MainController {
     }
 
     public void onStart(){
-
         List<StockCompany> stockCompanyList = getDataFromCache();
         if(stockCompanyList != null){
             view.showList(stockCompanyList);
@@ -85,13 +84,11 @@ public class MainController {
     private void makeAPIcall(){
         Call<List<StockCompany>> call = Injection.getFinancialModelingPrepAPI().getFMPResponse(Constantes.API_KEY);
         call.enqueue(new Callback<List<StockCompany>>() {
-
             @Override
             public void onResponse(Call<List<StockCompany>> call, Response<List<StockCompany>> response) {
-
                 if(response.isSuccessful() && response.body() != null){
                     List<StockCompany> fullStockCompanies = response.body();
-                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/500);
+                    List<StockCompany> stockCompanies = fullStockCompanies.subList(0, fullStockCompanies.size()/2);
                     saveList(stockCompanies);
                     view.showList(stockCompanies);
                 } else {
