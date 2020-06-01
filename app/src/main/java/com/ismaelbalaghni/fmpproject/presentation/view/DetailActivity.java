@@ -1,6 +1,4 @@
-package com.example.myprogrammationmobileproject.presentation.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.ismaelbalaghni.fmpproject.presentation.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,15 +8,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myprogrammationmobileproject.Constantes;
-import com.example.myprogrammationmobileproject.Injection;
-import com.example.myprogrammationmobileproject.R;
-import com.example.myprogrammationmobileproject.presentation.model.FullStockCompany;
-import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ismaelbalaghni.fmpproject.Constantes;
+import com.ismaelbalaghni.fmpproject.Injection;
+import com.ismaelbalaghni.fmpproject.R;
+import com.ismaelbalaghni.fmpproject.presentation.model.FullStockCompany;
+import com.ismaelbalaghni.fmpproject.presentation.model.StockCompany;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -50,11 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String company = intent.getStringExtra(Constantes.INTENT_COMPANY_KEY);
         StockCompany stockCompany = Injection.getGson().fromJson(company, StockCompany.class);
-        Log.d("test test test", stockCompany.getSymbol());
-        Log.d("test test test", "calling the API");
-        Log.d("test test test", Constantes.API_KEY);
         makeAPIcall(stockCompany);
-        Log.d("test test test", "API called");
     }
 
     Transformation transformation = new Transformation() {
@@ -87,10 +81,7 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void makeAPIcall(StockCompany company){
-        Log.d("test test test", "in the API call");
         Call<List<FullStockCompany>> call = Injection.getFinancialModelingPrepAPI().getStockCompanyDetails(company.getSymbol(), Constantes.API_KEY);
-        Log.d("test test test", "we will enqueue the call");
-        Log.d("test test test", String.valueOf(call.request()));
         call.enqueue(fullStockCompanyCallback);
     }
 
@@ -107,14 +98,12 @@ public class DetailActivity extends AppCompatActivity {
 
         @Override
         public void onFailure(Call<List<FullStockCompany>> call, Throwable t) {
-            Toast.makeText(DetailActivity.this, "SEVERE API ERROR", Toast.LENGTH_SHORT).show();
-            Log.e("test test test", "SEVERE API ERROR");
-            //showError();
+            showError();
         }
     };
 
     private void showError() {
-        Log.d("test test test", "it failed");
         Toast.makeText(this, R.string.toast_error, Toast.LENGTH_SHORT).show();
+        Log.e("PM-FMPproject", "SEVERE API ERROR");
     }
 }

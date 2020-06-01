@@ -1,4 +1,4 @@
-package com.example.myprogrammationmobileproject.presentation.view;
+package com.ismaelbalaghni.fmpproject.presentation.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myprogrammationmobileproject.Constantes;
-import com.example.myprogrammationmobileproject.R;
-import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
+import com.ismaelbalaghni.fmpproject.Constantes;
+import com.ismaelbalaghni.fmpproject.R;
+import com.ismaelbalaghni.fmpproject.presentation.model.StockCompany;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

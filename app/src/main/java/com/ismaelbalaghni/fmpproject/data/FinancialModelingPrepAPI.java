@@ -1,7 +1,7 @@
-package com.example.myprogrammationmobileproject.data;
+package com.ismaelbalaghni.fmpproject.data;
 
-import com.example.myprogrammationmobileproject.presentation.model.FullStockCompany;
-import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
+import com.ismaelbalaghni.fmpproject.presentation.model.FullStockCompany;
+import com.ismaelbalaghni.fmpproject.presentation.model.StockCompany;
 
 import java.util.List;
 

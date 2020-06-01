@@ -1,17 +1,17 @@
-package com.example.myprogrammationmobileproject.presentation.controller;
+package com.ismaelbalaghni.fmpproject.presentation.controller;
 
 import android.content.SharedPreferences;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-import com.example.myprogrammationmobileproject.Constantes;
-import com.example.myprogrammationmobileproject.Injection;
-import com.example.myprogrammationmobileproject.R;
-import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
-import com.example.myprogrammationmobileproject.presentation.view.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.ismaelbalaghni.fmpproject.Constantes;
+import com.ismaelbalaghni.fmpproject.Injection;
+import com.ismaelbalaghni.fmpproject.R;
+import com.ismaelbalaghni.fmpproject.presentation.model.StockCompany;
+import com.ismaelbalaghni.fmpproject.presentation.view.MainActivity;
 
 import java.lang.reflect.Type;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.myprogrammationmobileproject;
+package com.ismaelbalaghni.fmpproject;
 
 import android.content.Context;
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyProgrammationMobileProject</string>
+    <string name="app_name" translatable="false">FMP Live</string>
     <string name="action_settings">Settings</string>
     <string name="description">Description</string>
     <string name="example_application">Example application</string>

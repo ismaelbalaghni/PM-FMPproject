@@ -1,4 +1,4 @@
-package com.example.myprogrammationmobileproject.presentation.model;
+package com.ismaelbalaghni.fmpproject.presentation.model;
 
 import java.util.List;
 

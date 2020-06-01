@@ -1,11 +1,11 @@
-package com.example.myprogrammationmobileproject;
+package com.ismaelbalaghni.fmpproject;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.myprogrammationmobileproject.data.FinancialModelingPrepAPI;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ismaelbalaghni.fmpproject.data.FinancialModelingPrepAPI;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

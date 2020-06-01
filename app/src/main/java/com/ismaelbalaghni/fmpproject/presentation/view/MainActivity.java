@@ -1,4 +1,4 @@
-package com.example.myprogrammationmobileproject.presentation.view;
+package com.ismaelbalaghni.fmpproject.presentation.view;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -7,23 +7,20 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myprogrammationmobileproject.Constantes;
-import com.example.myprogrammationmobileproject.Injection;
-import com.example.myprogrammationmobileproject.R;
-import com.example.myprogrammationmobileproject.presentation.controller.MainController;
-import com.example.myprogrammationmobileproject.presentation.model.StockCompany;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.ismaelbalaghni.fmpproject.Constantes;
+import com.ismaelbalaghni.fmpproject.Injection;
+import com.ismaelbalaghni.fmpproject.R;
+import com.ismaelbalaghni.fmpproject.presentation.controller.MainController;
+import com.ismaelbalaghni.fmpproject.presentation.model.StockCompany;
 
 import java.util.List;
 
