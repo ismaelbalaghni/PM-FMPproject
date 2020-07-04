@@ -13,7 +13,6 @@ Cette application affichera toutes les entreprises côtées en bourse et qui son
 ## Fonctionnalités
 
 - RecyclerView pour afficher les éléments
-- Swipe to Refresh pour actualiser les données
 - Recherche de compagnies (fonctionnalité banale mais sur une liste de 14000 compagnies...)
 - API [REST](https://fr.wikipedia.org/wiki/Representational_state_transfer) pour récupérer les données depuis FMP.
 - API [Retrofit](https://square.github.io/retrofit/) qui va exploiter l'API REST pour récupérer les données.
